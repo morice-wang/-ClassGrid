@@ -1,14 +1,12 @@
 {
-    "versionCode":  74,
-    "versionName":  "1.47.5",
-    "minVersionCode":  1,
-    "size":  26645593,
-    "sha256":  "2c2654fadb5d3d91b188db733275272512992502cb7217ef8903e67b028a1b70",
-    "url":  "https://gitee.com/moricecc/class-grid/releases/download/v1.47.5/%E8%AF%BE%E6%A0%BCClassGrid_v1.47.5.zip",
-    "mirrors":  [
-
-                ],
-    "changelog":  "v1.47.5：自动更新接入正式仓库（Gitee）。此版起支持直接下载 Release 里的 zip 发布包，自动取出其中的 APK 校验安装；修复无通知权限时的下载提示。",
-    "force":  false,
-    "publishedAt":  "2026-11-14T11:27:06+08:00"
+    "versionCode": 93,
+    "versionName": "1.48.11",
+    "minVersionCode": 1,
+    "size": 26721612,
+    "sha256": "c003d9eef9057f8773ab9b9e0cd4d07f8c776d0580e6a340a5279bfb6ac69a19",
+    "url": "https://gitee.com/moricecc/class-grid/releases/download/v1.48.11/classgrid-1.48.11.apk",
+    "mirrors": [],
+    "changelog": "v1.48.11（versionCode 93）— 「第 N 周」胶囊收紧，右边不再留空白\n\n1. 小胶囊宽度改成按文字实际宽度算（文字宽 + 左右内边距），不再用固定 96dp / 80dp，右边不会再空出一大片。\n2. 两个小胶囊的文字都水平居中兜底，个别设备差 1–2 像素也居中。\n3. 系统字体放大（1.3 倍）时胶囊跟着变宽，左右留白仍对称。\n4. 其他一律没动：主胶囊、课程行、刷新图标、圆角、配色、深色模式全部照旧。\n5. 实测：「第 11 周」胶囊 77dp → 54dp，左右留白 10dp / 12dp。",
+    "force": false,
+    "publishedAt": "2026-11-16T21:40:00+08:00"
 }
