@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="icon_opt1_bg">#26CCB1</color>
+    <color name="icon_opt2_bg">#26CCB1</color>
+    <color name="icon_opt2a_bg">#26CCB1</color>
+    <color name="icon_opt2b_bg">#26CCB1</color>
+    <color name="icon_opt3_bg">#26CCB1</color>
+    <color name="icon_opt4_bg">#4F46E5</color>
+</resources>

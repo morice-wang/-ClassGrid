@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v1.15.1 原始自适应前景：直角方块，右上/左下 40% 半透明白，与最初版本完全一致 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M32,32 h20 v20 h-20 z" />
+    <path
+        android:fillColor="#66FFFFFF"
+        android:pathData="M56,32 h20 v20 h-20 z" />
+    <path
+        android:fillColor="#66FFFFFF"
+        android:pathData="M32,56 h20 v20 h-20 z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M56,56 h20 v20 h-20 z" />
+</vector>

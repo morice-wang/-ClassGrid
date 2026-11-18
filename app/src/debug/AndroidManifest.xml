@@ -1,0 +1,34 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        v1.42.0 调试用：只对 debug 构建放开这几个内部页面的 exported，
+        好在模拟器上用 `adb shell am start` 直接进指定页面做真机/模拟器验证。
+        release 构建不含这个文件，正式包仍是 exported=false。
+    -->
+    <application>
+        <activity
+            android:name=".WebImportActivity"
+            android:exported="true"
+            tools:replace="android:exported" />
+        <activity
+            android:name=".ImportActivity"
+            android:exported="true"
+            tools:replace="android:exported" />
+        <activity
+            android:name=".OcrResultActivity"
+            android:exported="true"
+            tools:replace="android:exported" />
+        <activity
+            android:name=".SchoolPickerActivity"
+            android:exported="true"
+            tools:replace="android:exported" />
+            <!-- v1.44.0：小组件验证用，一键 requestPinAppWidget -->
+        <activity
+            android:name=".WidgetPinDebugActivity"
+            android:exported="true" />
+        <activity
+            android:name=".WidgetBitmapDebugActivity"
+            android:exported="true" />
+</application>
+</manifest>

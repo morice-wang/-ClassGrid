@@ -1,0 +1,19 @@
+<resources>
+    <style name="Theme.ClassGrid" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorOnPrimary">@color/brand_on_primary</item>
+        <item name="colorPrimaryContainer">@color/brand_container</item>
+        <item name="colorOnPrimaryContainer">@color/brand_on_container</item>
+        <item name="colorSecondary">@color/brand_primary_dark</item>
+        <item name="colorOnSecondary">@color/brand_on_primary</item>
+        <item name="colorSecondaryContainer">@color/brand_container</item>
+        <item name="colorOnSecondaryContainer">@color/brand_on_container</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/window_bg</item>
+        <!-- 注：曾加过全局 fade 转场（ClassGridWindowAnim），日间模式下淡入期间窗口变透明会露出底层黑色
+             造成"点设置闪黑"，已移除，恢复系统默认转场（滑动+淡入、不透明首帧，无黑闪） -->
+    </style>
+
+</resources>

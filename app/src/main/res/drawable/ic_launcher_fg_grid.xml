@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v1.34.0 极光主题图标前景：2×2 圆角格（不是直角方块），左上格为实心白、其余 72% 白。
+     安全区：自适应图标可视范围约 66dp 直径，内容放在 28..80 之间，任何形状遮罩都不会切到。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- 左上（强调格） -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,30 h21 v21 h-21 z" />
+    <!-- 右上 -->
+    <path
+        android:fillColor="#B8FFFFFF"
+        android:pathData="M57,30 h21 v21 h-21 z" />
+    <!-- 左下 -->
+    <path
+        android:fillColor="#B8FFFFFF"
+        android:pathData="M30,57 h21 v21 h-21 z" />
+    <!-- 右下 -->
+    <path
+        android:fillColor="#B8FFFFFF"
+        android:pathData="M57,57 h21 v21 h-21 z" />
+</vector>

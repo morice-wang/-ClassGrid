@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  使用说明 / 注意事项（首页「每次更新后」自动弹出 + 设置页「使用说明 / 注意事项」手动查看，共用本布局）。
+  v1.35.1 更新：链接抓取已经从实验功能变成主推入口，这里的内容同步改写；
+  另外把原来写在属性里的双反斜杠 "\\n" 改成单个 "\n"（aapt2 只认单反斜杠转义，
+  写成两个反斜杠时换行会原样显示成字面的 \n）。
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="22dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="欢迎使用课格 ClassGrid"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="?android:attr/textColorPrimary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="登录教务系统自动抓取课表，也能截图识别、手动添加——都能一键变成能点、能改、能换周的电子课表。"
+            android:textSize="14sp"
+            android:lineSpacingExtra="3dp"
+            android:textColor="?android:attr/textColorSecondary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="推荐：链接抓取（最准，字段最全）"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="?android:attr/textColorPrimary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="① 点右上角 + → 导入课表 → 链接抓取\n② 选你的学校，在弹出的网页里自己登录（学校统一身份认证），一路点进「课程表」页面\n③ 点底部「抓取当前页面」→ 核对课程 → 选择导入即可"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp"
+            android:textColor="?android:attr/textColorPrimary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="其他导入方式"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="?android:attr/textColorPrimary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="· 截图识别：截「课程详情」弹窗或整周课表，自动识别成课程\n· Excel / CSV 导入：选教务系统导出的课表文件\n· JSON 导入：粘贴导出的课表 JSON\n· 手动添加：一门一门填，最慢但最可控"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp"
+            android:textColor="?android:attr/textColorPrimary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="注意事项"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="?android:attr/textColorPrimary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="· 抓取完全由你手动触发：在点「抓取当前页面」之前，App 不会读取任何页面内容\n· App 不保存你的教务系统密码，登录全程在你自己的网页里完成\n· 抓取不到时，先确认已经进入「课程表」页面；还不行就点「网址」手动打开课表页，或改用 Excel / 截图导入\n· 抓取失败会弹诊断信息，可「导出抓取数据」把 JSON 发给开发者排查\n· 没排进课表格子的课程（如线上课、未安排时间课程）抓不到，需要手动补\n· 节次以核对页为准：网页写「第七大节（14,15小节）」会换算成第 14-15 节\n· 截图识别只截课程详情弹窗最准，别把状态栏、其他课程、背景文字截进去"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp"
+            android:textColor="?android:attr/textColorPrimary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="多课表与界面风格"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="?android:attr/textColorPrimary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="· 设置 → 课表管理：可新建、切换、重命名、删除课表；导入时可选择「合并到当前 / 覆盖当前 / 新建课表」\n· 设置 → 界面主题：经典（原样配色，默认）/ 墨玉 / 极光；极光会换掉卡片、顶栏、底部导航和日程排版，随时可切回"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp"
+            android:textColor="?android:attr/textColorPrimary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="识别示例（截图导入）"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="?android:attr/textColorPrimary" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            android:maxHeight="300dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="识别示例截图"
+            android:src="@drawable/firstrun_good" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="↑ 认准这种「课程详情」弹窗：代码、教师、地点、周次、时间都在，识别最准"
+            android:textSize="12sp"
+            android:textColor="?android:attr/textColorSecondary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGotIt"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="18dp"
+            android:text="我知道了，开始使用"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:cornerRadius="14dp" />
+    </LinearLayout>
+</ScrollView>

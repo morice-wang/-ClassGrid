@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  桌面小组件声明（v1.44.0 起；v1.46.0 改为 Canvas 绘制整卡）
+  - 默认 4x2、可拖动缩放（v1.48.3 恢复）：minWidth/minHeight 决定默认占位 4x2（部分桌面
+    只认 minWidth，不看 targetCellWidth），minResize 放到 110dp 让用户能缩到 2x2，
+    maxResize 限制最大到 6x6 附近。
+  - updatePeriodMillis 半小时兜底；跨天/改时间/时区由 TodayWidgetProvider.onReceive 处理
+  - previewLayout 只在组件选择器里做静态预览（真实卡片由 TodayWidgetRenderer 绘制）
+-->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/widget_today_desc"
+    android:initialLayout="@layout/widget_today"
+    android:maxResizeHeight="500dp"
+    android:maxResizeWidth="500dp"
+    android:minHeight="110dp"
+    android:minResizeHeight="110dp"
+    android:minResizeWidth="110dp"
+    android:minWidth="340dp"
+    android:previewLayout="@layout/widget_today_preview"
+    android:resizeMode="horizontal|vertical"
+    android:targetCellHeight="2"
+    android:targetCellWidth="4"
+    android:updatePeriodMillis="1800000"
+    android:widgetCategory="home_screen" />

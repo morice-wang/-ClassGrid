@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v1.48.8：内容层从「一张位图」改成真正的 RemoteViews 布局。
+     以前内容位图按 options 里报的尺寸画，再用 centerInside 等比缩进真实格子；
+     部分桌面把 MAX_HEIGHT 报成「最多能拉多高」，位图比格子高，于是整层被缩小，
+     看起来就是「胶囊变短、两边留一大片余量」。
+     现在文字用 TextView（sp，系统字体/字号自然生效，永远不会被拉伸），
+     胶囊底由 TodayWidgetRenderer.pill() 画成小位图贴在 ImageView 上；
+     竖直方向用 layout_weight 分空间，布局自己量真实格子，报的尺寸再错也不会缩水。 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widgetRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/widgetCard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:importantForAccessibility="no"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp">
+
+        <!-- 顶部：今天 / 第几周 / 刷新 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- v1.48.10：小胶囊整体放大一档（22dp→26dp），左右内边距也加宽，
+                 原来 11.5sp 的字几乎把 22dp 的胶囊撑满，看着像贴边。 -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="26dp">
+
+                <ImageView
+                    android:id="@+id/chipTodayBg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:importantForAccessibility="no"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:id="@+id/txtToday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:maxLines="1"
+                    android:paddingStart="13dp"
+                    android:paddingEnd="13dp"
+                    android:textSize="12.5sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:layout_marginStart="7dp">
+
+                <ImageView
+                    android:id="@+id/chipWeekBg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:importantForAccessibility="no"
+                    android:scaleType="fitXY" />
+
+                <TextView
+                    android:id="@+id/txtWeek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:maxLines="1"
+                    android:paddingStart="11dp"
+                    android:paddingEnd="11dp"
+                    android:textSize="11sp" />
+            </FrameLayout>
+
+            <!-- RemoteViews 不允许 <Space>，用空 TextView 顶开（撑开右侧的刷新图标） -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/iconRefresh"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:importantForAccessibility="no"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+
+        <!-- 主胶囊：正在上 / 下一节 -->
+        <FrameLayout
+            android:id="@+id/heroBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <!-- 高度 wrap_content：胶囊按它自己的尺寸画好再居中，格子被拉高时不会把胶囊拉变形 -->
+            <ImageView
+                android:id="@+id/heroBg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:importantForAccessibility="no"
+                android:scaleType="fitXY" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="10dp">
+
+                <LinearLayout
+                    android:id="@+id/heroTimeRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtHeroTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:maxLines="1"
+                        android:textSize="16.5sp" />
+
+                    <TextView
+                        android:id="@+id/txtHeroRoom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtHeroName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center_horizontal"
+                    android:maxLines="1"
+                    android:textSize="19sp" />
+
+                <TextView
+                    android:id="@+id/txtHeroSub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center_horizontal"
+                    android:maxLines="1"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- 后续课程：最多三行，按权重分高度，永远不会挤出卡片 -->
+        <FrameLayout
+            android:id="@+id/row1Box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp">
+
+            <!-- 高度 wrap_content：胶囊按它自己的尺寸画好再居中，格子被拉高时不会把胶囊拉变形 -->
+            <ImageView
+                android:id="@+id/row1Bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:importantForAccessibility="no"
+                android:scaleType="fitXY" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp">
+
+                <TextView
+                    android:id="@+id/row1Time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:maxLines="1"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/row1Name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/row1Room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/row2Box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp">
+
+            <!-- 高度 wrap_content：胶囊按它自己的尺寸画好再居中，格子被拉高时不会把胶囊拉变形 -->
+            <ImageView
+                android:id="@+id/row2Bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:importantForAccessibility="no"
+                android:scaleType="fitXY" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp">
+
+                <TextView
+                    android:id="@+id/row2Time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:maxLines="1"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/row2Name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/row2Room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/row3Box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp">
+
+            <!-- 高度 wrap_content：胶囊按它自己的尺寸画好再居中，格子被拉高时不会把胶囊拉变形 -->
+            <ImageView
+                android:id="@+id/row3Bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:importantForAccessibility="no"
+                android:scaleType="fitXY" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp">
+
+                <TextView
+                    android:id="@+id/row3Time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:maxLines="1"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/row3Name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/row3Room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/row4Box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp">
+
+            <ImageView
+                android:id="@+id/row4Bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:importantForAccessibility="no"
+                android:scaleType="fitXY" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp">
+
+                <TextView
+                    android:id="@+id/row4Time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:maxLines="1"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/row4Name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/row4Room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- 透明点击区：盖住右上角画出来的刷新图标 -->
+    <ImageView
+        android:id="@+id/btnRefresh"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="top|end"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/widget_today_refresh" />
+</FrameLayout>

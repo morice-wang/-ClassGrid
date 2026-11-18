@@ -1,0 +1,14 @@
+{
+    "versionCode":  74,
+    "versionName":  "1.47.5",
+    "minVersionCode":  1,
+    "size":  26645593,
+    "sha256":  "2c2654fadb5d3d91b188db733275272512992502cb7217ef8903e67b028a1b70",
+    "url":  "https://gitee.com/moricecc/class-grid/releases/download/v1.47.5/%E8%AF%BE%E6%A0%BCClassGrid_v1.47.5.zip",
+    "mirrors":  [
+
+                ],
+    "changelog":  "v1.47.5：自动更新接入正式仓库（Gitee）。此版起支持直接下载 Release 里的 zip 发布包，自动取出其中的 APK 校验安装；修复无通知权限时的下载提示。",
+    "force":  false,
+    "publishedAt":  "2026-11-14T11:27:06+08:00"
+}

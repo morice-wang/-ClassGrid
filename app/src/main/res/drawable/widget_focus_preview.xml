@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 预览用主课卡片：浅主色底 + 圆角（真实卡片由 TodayWidgetRenderer 绘制） -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="14dp" />
+    <solid android:color="#147C6CF0" />
+</shape>

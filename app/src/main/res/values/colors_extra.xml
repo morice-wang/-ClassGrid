@@ -1,0 +1,9 @@
+<resources>
+    <color name="window_bg">#F7F8FC</color>
+
+    <!-- 桌面小组件（v1.44.0）：默认值给系统预览用，实际颜色在 TodayWidgetProvider 里按 App 主题设置 -->
+    <color name="widget_bg">#FFFFFF</color>
+    <color name="widget_text">#1F2330</color>
+    <color name="widget_text_muted">#7A8194</color>
+    <color name="widget_line">#E6E8F0</color>
+</resources>

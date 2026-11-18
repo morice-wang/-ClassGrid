@@ -1,0 +1,27 @@
+# ---- Android / Gradle ----
+*.iml
+.gradle/
+local.properties
+build/
+captures/
+.externalNativeBuild/
+.DS_Store
+
+# ---- 签名与密钥（绝不入库）----
+release.keystore
+*.keystore
+*.jks
+*.p12
+
+# ---- 打包产物 / 日志 ----
+*.apk
+*.aab
+*.zip
+*.log
+output.json
+
+# ---- 本地脚本与临时文件 ----
+_*.js
+_*.py
+_*.md
+*.op

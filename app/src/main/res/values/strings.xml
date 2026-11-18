@@ -1,0 +1,318 @@
+<resources>
+    <string name="app_name">课格</string>
+    <string name="app_slogan">把一周课表，装进口袋</string>
+
+    <!-- 主界面 -->
+    <string name="week_prefix">第</string>
+    <string name="week_suffix">周</string>
+    <string name="back_to_current_week">回到本周</string>
+    <string name="add_course">添加课程</string>
+    <string name="menu">菜单</string>
+    <string name="empty_title">还没有课程</string>
+    <string name="empty_desc">导入教务系统课表，或点击下方按钮手动添加</string>
+    <string name="import_course">导入课表</string>
+    <string name="add_manually">手动添加</string>
+    <string name="fab_add_sheet_manual">手动添加课程</string>
+    <string name="fab_add_sheet_ocr">截图识别导入</string>
+
+    <!-- v1.47.7：课表 + 菜单 / 添加日程 -->
+    <string name="add_sheet_title">添加</string>
+    <string name="add_sheet_course">手动添加课程</string>
+    <string name="add_sheet_course_desc">逐门录入课程（按节次与周次）</string>
+    <string name="add_sheet_event">手动添加日程</string>
+    <string name="add_sheet_event_desc">自定义时间段、地点与备注</string>
+    <string name="add_sheet_import">导入课表</string>
+    <string name="add_sheet_import_desc">链接抓取 / 截图识别 / Excel / JSON</string>
+
+    <string name="event_add_title">添加日程</string>
+    <string name="event_edit_title">编辑日程</string>
+    <string name="event_add_hint">时间段会按时间比例显示在课表对应位置，并同步到日程</string>
+    <string name="event_title_hint">日程名称（必填）</string>
+    <string name="event_date">日期</string>
+    <string name="event_start">开始时间</string>
+    <string name="event_end">结束时间</string>
+    <string name="event_all_day">全天</string>
+    <string name="event_end_empty">未设置</string>
+    <string name="event_location_hint">地点（可选）</string>
+    <string name="event_note_hint">备注（可选）</string>
+    <string name="event_hint_range">时间段会按比例画到课表</string>
+    <string name="event_time_range">时间段</string>
+    <string name="event_color">日程颜色</string>
+    <string name="event_hint_range_value">%1$s - %2$s，会按比例显示在课表中（长按开始时间可改为全天）</string>
+    <string name="event_hint_no_time">未设置时间：只在日程列表中显示</string>
+    <string name="event_hint_point">只设置了开始时间：当作时间点显示在日程里</string>
+    <string name="event_save">保存到日程</string>
+    <string name="event_saved">已添加到日程</string>
+    <string name="event_need_title">请填写日程名称</string>
+    <string name="event_end_before_start">结束时间要晚于开始时间</string>
+    <string name="event_time_cleared">已改为全天</string>
+
+    <!-- 周几 -->
+    <string name="monday">周一</string>
+    <string name="tuesday">周二</string>
+    <string name="wednesday">周三</string>
+    <string name="thursday">周四</string>
+    <string name="friday">周五</string>
+    <string name="saturday">周六</string>
+    <string name="sunday">周日</string>
+
+    <!-- 编辑课程 -->
+    <string name="edit_title_add">添加课程</string>
+    <string name="edit_title_edit">编辑课程</string>
+    <string name="course_name">课程名称</string>
+    <string name="course_name_hint">如：高等数学</string>
+    <string name="teacher">教师</string>
+    <string name="teacher_hint">可选</string>
+    <string name="classroom">教室</string>
+    <string name="classroom_hint">如：教学楼A-301</string>
+    <string name="day_of_week">上课星期</string>
+    <string name="start_section">开始节次</string>
+    <string name="end_section">结束节次</string>
+    <string name="week_range">周次范围</string>
+    <string name="to">至</string>
+    <string name="week_type">周次类型</string>
+    <string name="week_type_every">每周</string>
+    <string name="week_type_odd">单周</string>
+    <string name="week_type_even">双周</string>
+    <string name="course_color">课程颜色</string>
+    <string name="save">保存</string>
+    <string name="edit">编辑</string>
+    <string name="delete">删除</string>
+    <string name="delete_confirm">确定删除这门课程吗？</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="name_required">请填写课程名称</string>
+    <string name="section_invalid">结束节次需大于等于开始节次</string>
+    <string name="week_invalid">结束周需大于等于开始周</string>
+
+    <!-- 导入 -->
+    <string name="import_title">导入课表</string>
+    <string name="import_screenshot">截图导入</string>
+    <string name="import_screenshot_desc">识别教务系统课表截图，自动生成课程</string>
+    <string name="import_json">JSON 导入</string>
+    <string name="import_json_desc">粘贴或导入标准 JSON 课表数据</string>
+    <string name="import_excel">Excel / CSV 导入</string>
+    <string name="import_excel_desc">选教务系统导出的 Excel 或 CSV 课表文件</string>
+    <string name="import_excel_fail">这个文件没读出课表，确认它是整周课表的表格吗？</string>
+    <string name="import_excel_empty">文件里没有内容</string>
+    <string name="import_excel_failed_title">读不出这张课表</string>
+    <string name="import_excel_failed_hint">下面是诊断信息，点「导出识别日志」把文件发给我，能更快修好</string>
+    <string name="import_excel_xls_biff5">这是很老的 Excel 95 格式，请在电脑上「另存为」.xlsx 再导入</string>
+    <string name="export_failed">导出失败，请稍后再试</string>
+    <string name="import_manual">手动添加</string>
+    <string name="import_manual_desc">逐门录入课程信息</string>
+    <string name="import_link">链接抓取</string>
+    <string name="import_link_desc">选择学校后打开官网，登录教务系统即可提取课表</string>
+
+    <!-- 链接抓取 -->
+    <string name="web_import_title">链接抓取</string>
+    <string name="web_import_refresh">刷新页面</string>
+    <string name="web_import_url">网址</string>
+    <string name="web_import_log">日志</string>
+    <string name="web_import_try_list_mode">这个页面的课表不是表格，正在尝试切换到「列表展示」再抓一次…</string>
+    <string name="web_import_scan">抓取当前页面</string>
+    <string name="web_import_import">导入课表</string>
+    <string name="web_import_login_hint">登录并进入课表页面后，点底部「抓取当前页面」开始读取（App 不会自动抓取）</string>
+    <string name="web_import_loading">页面加载中…</string>
+    <string name="web_import_scanning">正在读取页面数据…</string>
+    <string name="web_import_found">检测到 %1$d 门课程，点「导入课表」核对并保存</string>
+    <string name="web_import_none">没有找到课表数据：请确认已进入课表页面，再点「抓取当前页面」</string>
+    <string name="web_import_found_title">检测到课表</string>
+    <string name="web_import_found_message">从当前页面提取到 %1$d 门课程，是否进入核对页面？</string>
+    <string name="web_import_error">页面加载失败：%1$s</string>
+    <string name="web_import_url_title">打开网址</string>
+    <string name="web_import_url_hint">https://</string>
+    <string name="web_import_url_confirm">打开</string>
+    <string name="web_import_url_choose">选择学校</string>
+    <string name="web_import_not_login">还未登录，请先登录后再抓取</string>
+
+    <string name="web_import_source_api">数据来源：网页接口（%1$d 个响应），字段最完整</string>
+    <string name="web_import_net_no_course">捕获到 %1$d 个接口响应，但里面没有识别出课表数据</string>
+    <string name="web_import_replay">正在用登录状态读取页面接口数据…（可能要几秒）</string>
+    <string name="web_import_source_replay">数据来源：页面接口重放（%1$d 个响应），字段最完整</string>
+    <string name="web_import_diag_title">没有识别出课表</string>
+    <string name="web_import_diag_export">导出抓取数据（分享给开发者）</string>
+    <string name="web_import_diag_copy">复制诊断摘要</string>
+    <string name="web_import_diag_fallback">改用截图导入</string>
+    <string name="web_import_diag_copied">已复制诊断摘要</string>
+    <string name="web_import_diag_export_empty">没有可导出的数据，请先点一次「抓取当前页面」</string>
+
+    <!-- 链接抓取：多学校支持（v1.38.0） -->
+    <string name="web_import_school_site_missing">这所学校还没有收录网址，先填一个再打开</string>
+    <string name="web_import_switch_school">切换学校</string>
+    <string name="web_import_home_site">回到学校官网</string>
+    <string name="web_import_gateways">本校常用入口</string>
+    <string name="web_import_gateways_hint">这些入口是按国内高校常见域名规则猜的，打不开就回官网里找「教务系统」入口。</string>
+    <string name="web_import_school_login_hint">已打开 %1$s。登录后进入课表页面，再点底部「抓取当前页面」</string>
+    <string name="web_import_url_invalid">网址不太对，检查一下再试</string>
+    <string name="web_import_url_remembered">已记住这所学校的网址</string>
+    <string name="web_import_more_title">更多操作</string>
+
+    <!-- 选择学校（v1.38.0） -->
+    <string name="school_picker_title">选择学校</string>
+    <string name="school_picker_subtitle">全国 %1$d 所高校</string>
+    <string name="school_picker_search_hint">搜索学校名 / 拼音 / 首字母</string>
+    <string name="school_picker_custom_action">+ 自定义</string>
+    <string name="school_picker_custom_title">自定义学校</string>
+    <string name="school_picker_custom_name">学校名称</string>
+    <string name="school_picker_custom_site">官网 / 教务系统网址（可留空，之后再填）</string>
+    <string name="school_picker_custom_need_name">请先填学校名称</string>
+    <string name="school_picker_custom_added">已添加「%1$s」</string>
+    <string name="school_picker_custom_duplicate">名单里已有「%1$s」，直接搜索它改网址就行</string>
+    <string name="school_picker_count">共 %1$d 所</string>
+    <string name="school_picker_all_provinces">全部</string>
+    <string name="school_picker_empty">名单里没有匹配的学校，可以点右上角「+ 自定义」自己添加</string>
+    <string name="school_picker_no_result">没找到「%1$s」，换个关键词或点「+ 自定义」</string>
+    <string name="school_picker_edit_url">修改网址</string>
+    <string name="school_picker_delete_custom">删除这所自定义学校</string>
+    <string name="school_picker_set_url">设置「%1$s」的网址</string>
+    <string name="school_picker_url_hint">填这所学校的官网或教务系统地址，保存后下次打开就用它。</string>
+    <string name="school_picker_url_saved">已保存「%1$s」的网址</string>
+    <string name="school_picker_reset_url">恢复默认网址</string>
+    <string name="school_picker_reset_done">已恢复默认网址</string>
+    <string name="school_picker_continue_last">继续上次：%1$s</string>
+    <string name="school_picker_delete_title">删除自定义学校</string>
+    <string name="school_picker_delete_message">删除「%1$s」？它的网址设置也会一起清掉。</string>
+    <string name="school_picker_no_site">未收录官网，点右侧铅笔填写</string>
+    <string name="school_picker_jw_prefix">教务 · %1$s</string>
+    <string name="school_picker_site_prefix">官网 · %1$s</string>
+    <string name="school_picker_add">添加</string>
+    <string name="school_picker_footer">找不到自己的学校？点右上角「+ 自定义」。网址随时能改，填错也不怕。</string>
+
+    <!-- 教务系统识别与入口（v1.39.0） -->
+    <string name="web_system_zhengfang">正方教务系统</string>
+    <string name="web_system_qiangzhi">强智教务系统</string>
+    <string name="web_system_jinzhi">金智 / 办事大厅</string>
+    <string name="web_system_qingguo">青果教务系统</string>
+    <string name="web_system_urp">URP 教务系统</string>
+    <string name="web_system_custom">学校自研教务系统</string>
+    <string name="web_system_unknown">未识别的教务系统</string>
+    <string name="web_system_hint_zhengfang">登录后点「信息查询 → 学生个人课表」，等表格出来再点底部「抓取当前页面」。</string>
+    <string name="web_system_hint_qiangzhi">登录后点「学生个人中心 → 我的课表」，等表格出来再点底部「抓取当前页面」。</string>
+    <string name="web_system_hint_jinzhi">这是统一身份认证 / 办事大厅：登录后在服务列表里找「课表查询 / 我的课表」，打开后点底部「抓取当前页面」。</string>
+    <string name="web_system_hint_qingguo">登录后点「信息查询 → 学生课表」，等表格出来再点底部「抓取当前页面」。</string>
+    <string name="web_system_hint_urp">登录后点「课表查询 / 我的课表」，等表格出来再点底部「抓取当前页面」。</string>
+    <string name="web_system_hint_custom">登录后找「课表 / 我的课表 / 学生课表」这类入口，打开课表页再点底部「抓取当前页面」。</string>
+    <string name="web_system_hint_unknown">不同学校入口不一样：登录后找「课表 / 我的课表 / 学生课表 / 课表查询」，打开课表页再点底部「抓取当前页面」。找不到就用「⋯ → 找课表页面」。</string>
+    <string name="web_import_open_jw">打开教务系统入口</string>
+    <string name="web_import_find_jw">在官网里找教务系统</string>
+    <string name="web_import_find_kb">找课表页面</string>
+    <string name="web_import_find_none">这个页面里没找到相关链接。可能是框架页（iframe）——请手动点进课表页，或用「⋯ → 打开网址」直接填课表地址。</string>
+    <string name="web_import_find_title">找到 %1$d 个候选，点一个打开</string>
+    <string name="web_import_system_title">教务系统判断</string>
+    <string name="web_import_system_msg">%1$s\n\n%2$s</string>
+    <string name="web_import_entry_fallback">打不开 %1$s，自动试下一个入口…</string>
+    <string name="web_import_entry_exhausted">候选入口都打不开，可在「⋯ → 打开网址」里手动填一个能用的网址。</string>
+    <string name="web_import_entry_ok">已自动换到可用入口：%1$s</string>
+    <string name="web_import_school_system_hint">已打开 %1$s（%2$s）。登录进入课表页面后，点底部「抓取当前页面」。</string>
+
+    <string name="pick_image">选择图片</string>
+    <string name="take_photo">拍照</string>
+    <string name="recognizing">正在识别课表…</string>
+    <string name="recognize_done">识别完成，请核对并修正</string>
+    <string name="ocr_export_log">导出识别日志</string>
+    <string name="ocr_export_log_hint">把原文、解析结果和设备信息发给我，能加快修好识别问题</string>
+    <string name="recognize_fail">识别失败，请重试或手动添加</string>
+
+    <!-- 设置 -->
+    <string name="settings_title">设置</string>
+    <string name="appearance">外观</string>
+    <string name="semester_start">学期开始日期（周一）</string>
+    <string name="total_weeks">学期总周数</string>
+    <string name="export_json">导出课表 JSON</string>
+    <string name="export_image">导出课表图片</string>
+    <string name="export_calendar">导出日历（.ics）</string>
+    <string name="export_calendar_desc">导入手机/电脑日历，用日历提醒上课</string>
+    <string name="export_calendar_hint">已生成 .ics 日历文件。\n\n分享面板里一般能直接选「日历」导入（小米、华为、OPPO、vivo 自带日历多数支持；不同品牌入口可能不同，有的要进日历 App 里手动「导入」）。\n\n如果分享面板里没有「日历」：先把文件转发到微信「文件传输助手」，在微信里点开它 →「用其他应用打开」→「日历」；或者存到文件管理里点开 .ics 再选日历。\n\n导入后课程按本地时间显示，上课提醒由系统日历负责，即使课格被清理后台也不会漏掉。</string>
+    <string name="clear_all">清空所有课程</string>
+    <string name="clear_confirm">确定清空全部课程？清空前数据会自动保留为备份，可在设置中恢复。</string>
+    <string name="restore_backup">恢复上次备份</string>
+    <string name="restore_backup_confirm">将用上次保存前的课表覆盖当前课表，确定恢复吗？</string>
+    <string name="restored_backup">已恢复备份</string>
+    <string name="restore_failed">备份恢复失败</string>
+    <string name="about">关于</string>
+    <string name="json_copied">已复制到剪贴板</string>
+    <string name="share_via">分享课表</string>
+
+    <!-- 周次选择 -->
+    <string name="view_week_schedule">查看周课表</string>
+    <string name="modify_current_week">修改当前周</string>
+    <string name="today_is_week_title">今天是第几周</string>
+
+    <!-- 通用 -->
+    <string name="ok">好的</string>
+    <string name="done">完成</string>
+    <!-- v1.44.0 桌面小组件「今日课表」 -->
+    <string name="widget_today_title">今天</string>
+    <string name="widget_today_header">今天 · %1$s</string>
+    <string name="widget_today_week">第%1$d周</string>
+    <string name="widget_today_more">还有 %1$d 门</string>
+    <string name="widget_today_empty">今天没有课，好好休息</string>
+    <string name="widget_today_refresh">刷新</string>
+    <string name="widget_today_desc">桌面显示今天的课，点一下打开课格</string>
+
+    <!-- v1.45.0 常驻通知 -->
+    <string name="today_notify_channel">今天的课</string>
+    <string name="today_notify_channel_desc">在通知栏常驻显示今天课程与下一节倒计时</string>
+    <string name="today_notify_empty">今天没有课，好好休息</string>
+    <string name="today_notify_action_refresh">刷新</string>
+    <string name="today_notify_action_off">关闭</string>
+    <string name="today_notify_title">通知栏常驻今天的课</string>
+    <string name="today_notify_on">已开启 · 点按关闭</string>
+    <string name="today_notify_off">已关闭 · 点按开启</string>
+    <string name="today_notify_denied">没有通知权限，无法在通知栏显示</string>
+
+    <!-- 检查更新（第一阶段：只查询与展示） -->
+    <string name="update_title">检查更新</string>
+    <string name="update_desc">当前 v%1$s · %2$s</string>
+    <string name="update_checking">正在检查更新…</string>
+    <string name="update_latest">已是最新版本 v%1$s</string>
+    <string name="update_failed">检查更新失败，请稍后再试</string>
+    <string name="update_found">发现新版本 v%1$s</string>
+    <string name="update_found_size">发现新版本 v%1$s（%2$s）</string>
+    <string name="update_no_changelog">这个版本没有写更新说明。</string>
+    <string name="update_phase_hint">点「下载更新」后会在通知栏显示进度；下载完成点通知即可安装。系统若提示不允许安装，请先允许「课格」安装未知应用。</string>
+    <string name="update_copy_url">复制地址</string>
+    <string name="update_url_copied">下载地址已复制</string>
+    <string name="update_url_empty">这个版本没有可用的下载地址</string>
+    <string name="update_later">稍后</string>
+
+    <!-- 下载与安装（第二、三阶段） -->
+    <string name="update_download">下载更新</string>
+    <string name="update_downloading">正在下载更新 v%1$s</string>
+    <string name="update_downloading_size">安装包 %1$s，可下拉通知栏查看进度</string>
+    <string name="update_download_percent">已下载 %1$d%%</string>
+    <string name="update_cancel">取消</string>
+    <string name="update_download_done">更新已下载完成 v%1$s</string>
+    <string name="update_tap_to_install">点击安装（需允许「安装未知应用」）</string>
+    <string name="update_download_failed">下载更新失败 v%1$s</string>
+    <string name="update_download_retry_hint">点一下重新打开课格，再试一次</string>
+    <string name="update_channel">软件更新</string>
+    <string name="update_channel_desc">下载新版本安装包时显示进度</string>
+    <string name="update_notify_failed">没有通知权限，下载仍在后台进行</string>
+    <string name="update_need_install_permission">请先允许「课格」安装未知应用，再回到通知栏点安装</string>
+    <string name="update_need_notification">请先允许「课格」发送通知：下载进度和「点击安装」都在通知栏里</string>
+    <string name="update_install_failed">没有找到可用的安装器</string>
+    <string name="update_file_missing">安装包不见了，请重新下载</string>
+    <string name="update_debug_manifest_title">调试：更新清单地址</string>
+    <string name="update_debug_manifest_hint">仅调试包生效。模拟器访问电脑本地服务用 http://10.0.2.2:8000/update.json；留空恢复默认。</string>
+    <string name="update_debug_manifest_saved">清单地址已保存</string>
+    <string name="update_force_title">需要更新到 v%1$s</string>
+    <string name="update_force_hint">这个版本必须更新后才能继续使用。</string>
+    <string name="update_skip_version">忽略此版本</string>
+    <string name="event_repeat_once">重复：不重复（点一下改成每周）</string>
+    <string name="event_repeat_weekly">重复：每周重复（点一下改回不重复）</string>
+    <string name="event_repeat_badge">每周</string>
+    <string name="event_week_start">起始周</string>
+    <string name="event_week_end">结束周</string>
+    <string name="event_week_value">第 %1$d 周</string>
+    <string name="event_week_pick">选择周次</string>
+    <string name="event_detail_title">日程详情</string>
+    <string name="event_detail_date">日期：%1$s</string>
+    <string name="event_detail_time">时间：%1$s</string>
+    <string name="event_detail_location">地点：%1$s</string>
+    <string name="event_detail_note">备注：%1$s</string>
+    <string name="event_detail_repeat">重复：%1$s</string>
+    <string name="event_detail_none">未设置</string>
+    <string name="event_delete_confirm">确定删除这条日程吗？</string>
+</resources>

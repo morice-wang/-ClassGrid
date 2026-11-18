@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v1.34.0 极光主题图标背景：对角渐变（靛蓝 #4338CA → 青 #06B6D4）。
+     自适应图标背景只接受 drawable，用 vector 画渐变，108dp viewport 与前景一致。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path android:pathData="M0,0 h108 v108 h-108 z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="0"
+                android:startY="0"
+                android:endX="108"
+                android:endY="108"
+                android:type="linear">
+                <item android:offset="0" android:color="#FF4338CA" />
+                <item android:offset="0.55" android:color="#FF4F46E5" />
+                <item android:offset="1" android:color="#FF06B6D4" />
+            </gradient>
+        </aapt:attr>
+    </path>
+</vector>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- 仅暴露导出图片子目录，避免把整个 cache/files 目录授予外部应用 -->
+    <cache-path name="exports" path="exports/" />
+    <!-- 自定义背景图片裁剪的临时输出目录 -->
+    <cache-path name="bg_crop" path="bg_crop/" />
+    <!-- v1.47.4 自动更新下载的 APK：externalFilesDir/updates/ -->
+    <external-files-path name="updates" path="updates/" />
+</paths>
